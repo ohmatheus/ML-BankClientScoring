@@ -33,4 +33,4 @@ Machine Learning Projet from Kaggle - application of several machine learning te
 <!-- ABOUT THIS PROJECT -->
 ## About This Project
 This project is from a competition in Kaggle called 'Home Credit Default Risk' where the goal is to predict how capable each applicant is of repaying a loan:
-![https://www.kaggle.com/c/home-credit-default-risk/overview]([./Images/images_segmentations.png](https://www.kaggle.com/c/home-credit-default-risk/overview))
+![Link to Kaggle Competition]([./Images/images_segmentations.png](https://www.kaggle.com/c/home-credit-default-risk/overview))
