@@ -34,3 +34,16 @@ Machine Learning Projet from Kaggle - application of several machine learning te
 ## About This Project
 This project is from a competition in Kaggle called 'Home Credit Default Risk' where the goal is to predict how capable each applicant is of repaying a loan:
 [Link to Kaggle Competition](https://www.kaggle.com/c/home-credit-default-risk/overview)
+
+The database used for this project is quite big, and uses several SQL table. Which can be represented by this image :
+![database](./Images/DB.png)
+
+Our goal is here to identify and/or create variables that will permit us to build and train appropriate machine mearning models so we can predict as much as possible if a client is able to repay a load in time, or not.
+
+Throughout this entiere process, we will use the [ROC AUC](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) metrics to compare models, as it is the same metric used by Kaggle for this competition.
+
+EDA
+
+Feature Engineering
+
+Modeling
