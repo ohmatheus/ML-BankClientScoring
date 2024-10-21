@@ -106,6 +106,9 @@ In the same way, people with a higher degree seems to have more chance to repay 
 
 <!-- EXT_SOURCE (1, 2, 3) -->
 #### EXT_SOURCE (1, 2, 3)
+
+Let's do a correlation heatmap for those variable:
+
 ![ext_corrheat](./Images/ext_corrheat.png)
 
 There is a negative correlation between our Target and all 3 EXT_SOURCE.
