@@ -122,7 +122,6 @@ We can see some sort of correlation between those features and the Target.
 <!-- Feature Engineering -->
 ## Feature Engineering
 
-
 - Remove colinears features
 
 Feature Engineering
