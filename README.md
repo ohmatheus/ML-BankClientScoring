@@ -121,6 +121,10 @@ We can see some sort of correlation between those features and the Target.
 
 <!-- Feature Engineering -->
 ## Feature Engineering
+Now we need to create mores variables/features, hand-crafted, but also using some techniques, to see if we can get more correlated variable to our Target.
+
+<!-- Polynomial Features -->
+## Polynomial Features
 
 - Remove colinears features
 
