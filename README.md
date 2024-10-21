@@ -57,6 +57,16 @@ Meaning we will need to adapt our algorithm to fit those unbalanced data.
 
 <!-- Basic correlations -->
 ### Basic correlations
+A simple correlation table (check 1st notebook for more infos) reveal that the 5 first features positively correlated to our TARGET are :
+- `DAYS_BIRTH` : "Client's age in days at the time of application" (Pearson 0.078)
+- `DAYS_EMPLOYED` : "How many days before the application the person started current employment" (Pearson 0.075)
+- `REGION_RATING_CLIENT_W_CITY` : "Our rating of the region where client lives with taking city into account (1,2,3)" (Pearson 0.061)
+- `REGION_RATING_CLIENT` : Our rating of the region where client lives (1,2,3) (Pearson 0.059)
+- `NAME_EDUCATION_TYPE` (encoded) : "Level of highest education the client achieved" (Pearson 0.054)
+
+And the 5 most negatively correlated features are :
+- 
+
 
 - Remove colinears features
 
