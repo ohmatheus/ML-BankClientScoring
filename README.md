@@ -53,6 +53,7 @@ After that we end up with a total ~350K clients (labelised) and 239 features usa
 
 Reguarding the proportion of clients who repaid in time and those who didn't, we have :
 ![proportion](./Images/proportion.png)
+
 Meaning we will need to adapt our algorithm to fit those unbalanced data.
 
 <!-- Basic correlations -->
@@ -83,25 +84,23 @@ And the 5 most negatively correlated features are :
 
 <!-- DAYS_BIRTH -->
 #### DAYS_BIRTH
-daysbirth_distrib.png
+![daysbirth_distrib](./Images/daysbirth_distrib.png)
 
-daysbirth_target.png
+![daysbirth_target](./Images/daysbirth_target.png)
 
-daysbirth_failure.png
+![daysbirth_failure](./Images/daysbirth_failure.png)
 
 <!-- NAME_EDUCATION_TYPE -->
 #### NAME_EDUCATION_TYPE
+![nameeducation_target](./Images/nameeducation_target.png)
 
-nameeducation_target.png
-
-nameeducation_prop.png
+![nameeducation_prop](./Images/nameeducation_prop.png)
 
 <!-- EXT_SOURCE (1, 2, 3) -->
 #### EXT_SOURCE (1, 2, 3)
+![ext_corrheat](./Images/ext_corrheat.png)
 
-ext_corrheat.png
-
-exttarget.png
+![exttarget](./Images/exttarget.png)
 
 
 <!-- Feature Engineering -->
