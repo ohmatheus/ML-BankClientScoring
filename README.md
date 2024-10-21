@@ -76,11 +76,15 @@ And the 5 most negatively correlated features are :
 
 <!-- DAYS_EMPLOYED -->
 #### DAYS_EMPLOYED
+Distribution:
 ![days_employed_prop](./Images/days_employed_prop.png)
 
+Distribution compared to target:
 ![days_empoyed_traget](./Images/days_empoyed_traget.png)
 
 ![faillure_Daysemployed](./Images/faillure_Daysemployed.png)
+
+We clearly have a pattern here. People employed since less time seems to have a lower probability to repay the loan at time.
 
 <!-- DAYS_BIRTH -->
 #### DAYS_BIRTH
@@ -90,18 +94,27 @@ And the 5 most negatively correlated features are :
 
 ![daysbirth_failure](./Images/daysbirth_failure.png)
 
+Younger people seems to have a lower chance to repay the loan at time.
+
 <!-- NAME_EDUCATION_TYPE -->
 #### NAME_EDUCATION_TYPE
 ![nameeducation_target](./Images/nameeducation_target.png)
 
 ![nameeducation_prop](./Images/nameeducation_prop.png)
 
+In the same way, people with a higher degree seems to have more chance to repay their loan.
+
 <!-- EXT_SOURCE (1, 2, 3) -->
 #### EXT_SOURCE (1, 2, 3)
 ![ext_corrheat](./Images/ext_corrheat.png)
 
+There is a negative correlation between our Target and all 3 EXT_SOURCE.
+Plus high correlation between DAYS_BIRTH and EXT_SOURCE_1
+
+Here is the distribution of all EXT_Source_X compared to our Target:
 ![exttarget](./Images/exttarget.png)
 
+We can see some sort of correlation between those features and the Target.
 
 <!-- Feature Engineering -->
 ## Feature Engineering
