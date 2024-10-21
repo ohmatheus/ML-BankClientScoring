@@ -43,7 +43,7 @@ Our goal is here to identify and/or create variables that will permit us to buil
 Throughout this entiere process, we will use the [ROC AUC](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) metrics to compare models, as it is the same metric used by Kaggle for this competition. As a disclaimer, we reached 0.706 on the ROC Auc for this project, best results are arount 0.850 last time i checked, wich leave us some room for many improvements.
 
 <!-- EDA -->
-### EDA
+## EDA
 The database is built upon raw data, meaning we have to clean it. If you want more details you can see the first notebook, but as part of the cleaning we :
 - Took care of missing values by removing them or imputation
 - Encoded (oneHot or Label encoding) some of the categorical strings
@@ -65,8 +65,16 @@ A simple correlation table (check 1st notebook for more infos) reveal that the 5
 - `NAME_EDUCATION_TYPE` (encoded) : "Level of highest education the client achieved" (Pearson 0.054)
 
 And the 5 most negatively correlated features are :
-- 
+- `EXT_SOURCE_3` : "Normalized score from external data source"
+- `EXT_SOURCE_2` : "Normalized score from external data source"
+- `EXT_SOURCE_1` : "Normalized score from external data source"
+- `AMT_GOODS_PRICE` : For consumer loans it is the price of the goods for which the loan is given
+- `NAME_EDUCATION_TYPE` (encoded) : "Level of highest education the client achieved"
 
+`EXT_SOURCE_X' 1 2 and 3 are data provided by the Home Credit, and we have no intel on their meaning.
+
+<!-- Basic correlations -->
+## DAYS_EMPLOYED
 
 - Remove colinears features
 
