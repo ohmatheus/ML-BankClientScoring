@@ -75,6 +75,14 @@ And the 5 most negatively correlated features are :
 
 <!-- Basic correlations -->
 #### DAYS_EMPLOYED
+![days_employed_prop](./Images/days_employed_prop.png)
+
+![days_empoyed_traget](./Images/days_empoyed_traget.png)
+
+![faillure_Daysemployed](./Images/faillure_Daysemployed.png)
+
+
+
 
 - Remove colinears features
 
