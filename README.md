@@ -73,7 +73,7 @@ And the 5 most negatively correlated features are :
 
 `EXT_SOURCE_X' 1 2 and 3 are data provided by the Home Credit, and we have no intel on their meaning.
 
-<!-- Basic correlations -->
+<!-- DAYS_EMPLOYED -->
 #### DAYS_EMPLOYED
 ![days_employed_prop](./Images/days_employed_prop.png)
 
@@ -81,7 +81,31 @@ And the 5 most negatively correlated features are :
 
 ![faillure_Daysemployed](./Images/faillure_Daysemployed.png)
 
+<!-- DAYS_BIRTH -->
+#### DAYS_BIRTH
+daysbirth_distrib.png
 
+daysbirth_target.png
+
+daysbirth_failure.png
+
+<!-- NAME_EDUCATION_TYPE -->
+#### NAME_EDUCATION_TYPE
+
+nameeducation_target.png
+
+nameeducation_prop.png
+
+<!-- EXT_SOURCE (1, 2, 3) -->
+#### EXT_SOURCE (1, 2, 3)
+
+ext_corrheat.png
+
+exttarget.png
+
+
+<!-- Feature Engineering -->
+## Feature Engineering
 
 
 - Remove colinears features
