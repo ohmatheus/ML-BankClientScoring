@@ -169,5 +169,24 @@ After selecting this 95% of cumulative importance, we end up with ~350 featuers,
 ## Modeling
 That we get to the interesting stuff. We have ~350 features to predict a probability, between 0 and 1. We need to find the model that fit our needs.
 
-<!-- Baseline -->
-### Baseline
+<!-- Model Selection -->
+### Model Selection
+
+We create a custom scoring method (unbalanced)  based on accuracy to compare models.
+Then we do a first grid search on 
+using SMOTE
+
+![Baseline.png](./Images/Baseline.png)
+
+![randomsearch](./Images/randomsearch.png)
+
+![testdistrib](./Images/testdistrib.png)
+
+![featureimportance_reel](./Images/featureimportance_reel.png)
+
+![cumimportance_reel](./Images/cumimportance_reel.png)
+
+![goodclient](./Images/goodclient.png)
+
+![badclient](./Images/badclient.png)
+
