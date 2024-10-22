@@ -40,7 +40,7 @@ The database used for this project is quite big, and uses several SQL table. Whi
 
 Our goal is here to identify and/or create variables that will permit us to build and train appropriate machine mearning models so we can predict as much as possible if a client is able to repay a load in time, or not.
 
-Throughout this entiere process, we will use the [ROC AUC](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) metrics to compare models, as it is the same metric used by Kaggle for this competition. As a disclaimer, we reached 0.706 on the ROC Auc for this project, best results are arount 0.850 last time i checked, wich leave us some room for many improvements.
+Throughout this entiere process, we will use the [ROC AUC](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) metrics to compare models, as it is the same metric used by Kaggle for this competition. As a disclaimer, we reached 0.78613 on the ROC Auc for this project, best results are arount 0.805 last time i checked, wich leave us some room for many improvements.
 
 <!-- EDA -->
 ## EDA
@@ -172,21 +172,48 @@ That we get to the interesting stuff. We have ~350 features to predict a probabi
 <!-- Model Selection -->
 ### Model Selection
 
-We create a custom scoring method (unbalanced)  based on accuracy to compare models.
-Then we do a first grid search on 
-using SMOTE
+Because we are in a unbalanced dataset, we perform an over-sampling using SMOTE, see details in notebook 3.
 
+Then we do a first grid search on 3 model type : LGB, logistic regression and random forest, with some basic arguments for each of them and selecting best cadidates to finally compare those 3 models:
 ![Baseline.png](./Images/Baseline.png)
 
+It seems in our case that LGB is the best candidate for our needs. We will now try to optimize this model for our data.
+> [!NOTE]
+> There is a lot of models that could be tested, but because my computationnal resources are limited, i just kept it simple while trying to do things right.
+
+<!-- Model Tuning -->
+### Model Tuning
+Throughout this entire process, early stopping is used with LGBM so we don't have to directly deal with the tree number argument.
+We do a first Baseline using cross validation, giving us a ROC auc of 0.77646 on our test set (std 0.00563)
+
+To search for optimal argument, we do first a random search (check notebook 3 for details), still using SMOTE, trying a lot of differents arguments combination:
 ![randomsearch](./Images/randomsearch.png)
 
+After that we perform another grid search, for a more detailed selection of arguments.
+
+At the end we have a ROC AUC of 0.78520, wich is pretty good !
+
+<!-- Threashold -->
+### Threashold
+Now that we have a model, we can't just say that prediction are split at the 0.5 values, we need a threshold to split our probabilities from 0->1 to a raw classification 0 or 1, the calculated theashold is 0.21:
 ![testdistrib](./Images/testdistrib.png)
 
+<!-- Feature Explanation -->
+## Feature Explanation
+We can simply use the feature importance from LGBM :
 ![featureimportance_reel](./Images/featureimportance_reel.png)
 
 ![cumimportance_reel](./Images/cumimportance_reel.png)
 
+But we can also use shap to explain why a client is predicted as good or bad :
+
+Here is an exemple of a good client :
 ![goodclient](./Images/goodclient.png)
 
+Here is an exemple of a bad client :
 ![badclient](./Images/badclient.png)
 
+<!-- Conclusion -->
+## Conclusion
+We now have a LGB model trainned on our data, which scores 0.78613 on the ROC Auc on the Kaggle web site. 
+We can also explain why a client is predicted as good or bad.
