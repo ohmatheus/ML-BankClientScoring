@@ -77,9 +77,11 @@ And the 5 most negatively correlated features are :
 <!-- DAYS_EMPLOYED -->
 #### DAYS_EMPLOYED
 Distribution:
-<img src="./Images/days_employed_prop.png" width="20%" height="20%">
+
+<img src="./Images/days_employed_prop.png" width="40%" height="40%">
 
 Distribution compared to target:
+
 <img src="./Images/days_empoyed_traget.png" width="20%" height="20%">
 
 <img src="./Images/faillure_Daysemployed.png" width="20%" height="20%">
