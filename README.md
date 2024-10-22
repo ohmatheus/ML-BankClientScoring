@@ -141,9 +141,22 @@ We aggregate the features present in all the tables relative to our Target to ge
 After numerical and categorical aggregation (see 2nd notebook for info), 
 
 > [!NOTE]  
-> Highlights information that users should take into account, even when skimming.
+> There is some automatic feature engineering librairies like featuretools that we could use, but to stay simple for now we wont.
+> We also can check different operation on some variables, like derivation (acceleration), to see if it could gives us more correlated features.
 
-clean ->  remove colinear variable
+<!-- Feature Selection -->
+### Feature Selection
+After this engineering we end up with more than 1760 features, we need to reduce that number:
+- Cleaning again missing values, eventual duplicates, and ID feaures
+- removeing colinear variables (>850)
+
+And we are going to select only the features that represents the first 95% of the cumulative importance relative to Target with LightGBM (lightGradientBoosting) :
+
+![featureimportance1](./Images/featureimportance1.png)
+
+![cumulativeimportance1](./Images/cumulativeimportance1.png)
+
+After selecting this 95% of cumulative importance, we end up with ~350 featuers, wich is what we need to train some models.
 
 <!-- Modeling -->
 ## Modeling
