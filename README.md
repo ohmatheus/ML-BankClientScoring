@@ -118,6 +118,7 @@ There is a negative correlation between our Target and all 3 EXT_SOURCE.
 Plus high correlation between DAYS_BIRTH and EXT_SOURCE_1
 
 Here is the distribution of all EXT_Source_X compared to our Target:
+
 <img src="./Images/exttarget.png" width="40%" height="40%">
 
 We can see some sort of correlation between those features and the Target.
@@ -178,7 +179,8 @@ That we get to the interesting stuff. We have ~350 features to predict a probabi
 Because we are in a unbalanced dataset, we perform an over-sampling using SMOTE, see details in notebook 3.
 
 Then we do a first grid search on 3 model type : LGB, logistic regression and random forest, with some basic arguments for each of them and selecting best cadidates to finally compare those 3 models:
-<img src="./Images/Baseline.png" width="40%" height="40%">
+
+<img src="./Images/Baseline.png" width="80%" height="80%">
 
 It seems in our case that LGB is the best candidate for our needs. We will now try to optimize this model for our data.
 > [!NOTE]
@@ -190,7 +192,8 @@ Throughout this entire process, early stopping is used with LGBM so we don't hav
 We do a first Baseline using cross validation, giving us a ROC auc of 0.77646 on our test set (std 0.00563)
 
 To search for optimal argument, we do first a random search (check notebook 3 for details), still using SMOTE, trying a lot of differents arguments combination:
-<img src="./Images/randomsearch.png" width="40%" height="40%">
+
+<img src="./Images/randomsearch.png" width="80%" height="80%">
 
 After that we perform another grid search, for a more detailed selection of arguments.
 
@@ -199,22 +202,26 @@ At the end we have a ROC AUC of 0.78520, wich is pretty good !
 <!-- Threashold -->
 ### Threashold
 Now that we have a model, we can't just say that prediction are split at the 0.5 values, we need a threshold to split our probabilities from 0->1 to a raw classification 0 or 1, the calculated theashold is 0.21:
+
 <img src="./Images/testdistrib.png" width="40%" height="40%">
 
 <!-- Feature Explanation -->
 ## Feature Explanation
 We can simply use the feature importance from LGBM :
-<img src="./Images/featureimportance_reel.png" width="40%" height="40%">
+
+<img src="./Images/featureimportance_reel.png" width="60%" height="60%">
 
 <img src="./Images/cumimportance_reel.png" width="40%" height="40%">
 
 But we can also use shap to explain why a client is predicted as good or bad :
 
 Here is an exemple of a good client :
-<img src="./Images/goodclient.png" width="40%" height="40%">
+
+<img src="./Images/goodclient.png" width="70%" height="70%">
 
 Here is an exemple of a bad client :
-<img src="./Images/badclient.png" width="40%" height="40%">
+
+<img src="./Images/badclient.png" width="70%" height="70%">
 
 <!-- Conclusion -->
 ## Conclusion
