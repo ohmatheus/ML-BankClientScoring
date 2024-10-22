@@ -52,7 +52,7 @@ The database is built upon raw data, meaning we have to clean it. If you want mo
 After that we end up with a total ~350K clients (labelised) and 239 features usable for trainning. We split test/train to something arount 0.2/0.8
 
 Reguarding the proportion of clients who repaid in time and those who didn't, we have :
-<img src="./Images/proportion.png" width="100%" height="100%">
+<img src="./Images/proportion.png" width="20%" height="20%">
 
 Meaning we will need to adapt our algorithm to fit those unbalanced data.
 
@@ -77,12 +77,12 @@ And the 5 most negatively correlated features are :
 <!-- DAYS_EMPLOYED -->
 #### DAYS_EMPLOYED
 Distribution:
-<img src="./Images/days_employed_prop.png" width="100%" height="100%">
+<img src="./Images/days_employed_prop.png" width="20%" height="20%">
 
 Distribution compared to target:
-<img src="./Images/days_empoyed_traget.png" width="100%" height="100%">
+<img src="./Images/days_empoyed_traget.png" width="20%" height="20%">
 
-<img src="./Images/faillure_Daysemployed.png" width="100%" height="100%">
+<img src="./Images/faillure_Daysemployed.png" width="20%" height="20%">
 
 We clearly have a pattern here. People employed since less time seems to have a lower probability to repay the loan at time.
 
