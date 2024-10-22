@@ -154,9 +154,20 @@ And we are going to select only the features that represents the first 95% of th
 
 ![featureimportance1](./Images/featureimportance1.png)
 
+It's interesting to see that in those feature, we can see the 3 EXT_SOURCE_X features that we already worked with, but also some feature that has been created with aggregation like 'burea u_DAYS_CREDIT_max' wich can be translated as 'the maximum number of days between each credit'
+
 ![cumulativeimportance1](./Images/cumulativeimportance1.png)
 
 After selecting this 95% of cumulative importance, we end up with ~350 featuers, wich is what we need to train some models.
 
+> [!NOTE]
+> ACP could have been used for dimentionnality reduction, but not optimal for features explanation
+> ICA
+> Manifold Learning ?
+
 <!-- Modeling -->
 ## Modeling
+That we get to the interesting stuff. We have ~350 features to predict a probability, between 0 and 1. We need to find the model that fit our needs.
+
+<!-- Baseline -->
+### Baseline
