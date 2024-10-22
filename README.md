@@ -52,7 +52,8 @@ The database is built upon raw data, meaning we have to clean it. If you want mo
 After that we end up with a total ~350K clients (labelised) and 239 features usable for trainning. We split test/train to something arount 0.2/0.8
 
 Reguarding the proportion of clients who repaid in time and those who didn't, we have :
-<img src="./Images/proportion.png" width="20%" height="20%">
+
+<img src="./Images/proportion.png" width="40%" height="40%">
 
 Meaning we will need to adapt our algorithm to fit those unbalanced data.
 
@@ -82,27 +83,27 @@ Distribution:
 
 Distribution compared to target:
 
-<img src="./Images/days_empoyed_traget.png" width="20%" height="20%">
+<img src="./Images/days_empoyed_traget.png" width="40%" height="40%">
 
-<img src="./Images/faillure_Daysemployed.png" width="20%" height="20%">
+<img src="./Images/faillure_Daysemployed.png" width="40%" height="40%">
 
 We clearly have a pattern here. People employed since less time seems to have a lower probability to repay the loan at time.
 
 <!-- DAYS_BIRTH -->
 #### DAYS_BIRTH
-<img src="./Images/daysbirth_distrib.png" width="100%" height="100%">
+<img src="./Images/daysbirth_distrib.png" width="40%" height="40%">
 
-<img src="./Images/daysbirth_target.png" width="100%" height="100%">
+<img src="./Images/daysbirth_target.png" width="40%" height="40%">
 
-<img src="./Images/daysbirth_failure.png" width="100%" height="100%">
+<img src="./Images/daysbirth_failure.png" width="40%" height="40%">
 
 Younger people seems to have a lower chance to repay the loan at time.
 
 <!-- NAME_EDUCATION_TYPE -->
 #### NAME_EDUCATION_TYPE
-<img src="./Images/nameeducation_target.png" width="100%" height="100%">
+<img src="./Images/nameeducation_target.png" width="40%" height="40%">
 
-<img src="./Images/nameeducation_prop.png" width="100%" height="100%">
+<img src="./Images/nameeducation_prop.png" width="40%" height="40%">
 
 In the same way, people with a higher degree seems to have more chance to repay their loan.
 
@@ -111,13 +112,13 @@ In the same way, people with a higher degree seems to have more chance to repay 
 
 Let's do a correlation heatmap for those variable:
 
-<img src="./Images/ext_corrheat.png" width="100%" height="100%">
+<img src="./Images/ext_corrheat.png" width="40%" height="40%">
 
 There is a negative correlation between our Target and all 3 EXT_SOURCE.
 Plus high correlation between DAYS_BIRTH and EXT_SOURCE_1
 
 Here is the distribution of all EXT_Source_X compared to our Target:
-<img src="./Images/exttarget.png" width="100%" height="100%">
+<img src="./Images/exttarget.png" width="40%" height="40%">
 
 We can see some sort of correlation between those features and the Target.
 
@@ -133,7 +134,7 @@ We can :
 	- `CREDIT_TERM` : credit time (in month)
 	- `DAYS_EMPLOYED_PERCENT` : ratio between DAYS_EMPLOYED and DAYS_BIRTH
 
-<img src="./Images/handlyfeature.png" width="100%" height="100%">
+<img src="./Images/handlyfeature.png" width="40%" height="40%">
 
 Nothing particularly special, but we still add them into our dataset.
  
@@ -154,11 +155,11 @@ After this engineering we end up with more than 1760 features, we need to reduce
 
 And we are going to select only the features that represents the first 95% of the cumulative importance relative to Target with LightGBM (lightGradientBoosting) :
 
-<img src="./Images/featureimportance1.png" width="100%" height="100%">
+<img src="./Images/featureimportance1.png" width="40%" height="40%">
 
 It's interesting to see that in those feature, we can see the 3 EXT_SOURCE_X features that we already worked with, but also some feature that has been created with aggregation like 'burea u_DAYS_CREDIT_max' wich can be translated as 'the maximum number of days between each credit'
 
-<img src="./Images/cumulativeimportance1.png" width="100%" height="100%">
+<img src="./Images/cumulativeimportance1.png" width="40%" height="40%">
 
 After selecting this 95% of cumulative importance, we end up with ~350 featuers, wich is what we need to train some models.
 
@@ -177,7 +178,7 @@ That we get to the interesting stuff. We have ~350 features to predict a probabi
 Because we are in a unbalanced dataset, we perform an over-sampling using SMOTE, see details in notebook 3.
 
 Then we do a first grid search on 3 model type : LGB, logistic regression and random forest, with some basic arguments for each of them and selecting best cadidates to finally compare those 3 models:
-<img src="./Images/Baseline.png" width="100%" height="100%">
+<img src="./Images/Baseline.png" width="40%" height="40%">
 
 It seems in our case that LGB is the best candidate for our needs. We will now try to optimize this model for our data.
 > [!NOTE]
@@ -189,7 +190,7 @@ Throughout this entire process, early stopping is used with LGBM so we don't hav
 We do a first Baseline using cross validation, giving us a ROC auc of 0.77646 on our test set (std 0.00563)
 
 To search for optimal argument, we do first a random search (check notebook 3 for details), still using SMOTE, trying a lot of differents arguments combination:
-<img src="./Images/randomsearch.png" width="100%" height="100%">
+<img src="./Images/randomsearch.png" width="40%" height="40%">
 
 After that we perform another grid search, for a more detailed selection of arguments.
 
@@ -198,22 +199,22 @@ At the end we have a ROC AUC of 0.78520, wich is pretty good !
 <!-- Threashold -->
 ### Threashold
 Now that we have a model, we can't just say that prediction are split at the 0.5 values, we need a threshold to split our probabilities from 0->1 to a raw classification 0 or 1, the calculated theashold is 0.21:
-<img src="./Images/testdistrib.png" width="100%" height="100%">
+<img src="./Images/testdistrib.png" width="40%" height="40%">
 
 <!-- Feature Explanation -->
 ## Feature Explanation
 We can simply use the feature importance from LGBM :
-<img src="./Images/featureimportance_reel.png" width="100%" height="100%">
+<img src="./Images/featureimportance_reel.png" width="40%" height="40%">
 
-<img src="./Images/cumimportance_reel.png" width="100%" height="100%">
+<img src="./Images/cumimportance_reel.png" width="40%" height="40%">
 
 But we can also use shap to explain why a client is predicted as good or bad :
 
 Here is an exemple of a good client :
-<img src="./Images/goodclient.png" width="100%" height="100%">
+<img src="./Images/goodclient.png" width="40%" height="40%">
 
 Here is an exemple of a bad client :
-<img src="./Images/badclient.png" width="100%" height="100%">
+<img src="./Images/badclient.png" width="40%" height="40%">
 
 <!-- Conclusion -->
 ## Conclusion
