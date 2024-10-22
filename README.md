@@ -121,13 +121,29 @@ We can see some sort of correlation between those features and the Target.
 
 <!-- Feature Engineering -->
 ## Feature Engineering
-Now we need to create mores variables/features, hand-crafted, but also using some techniques, to see if we can get more correlated variable to our Target.
+Now we need to create mores variables/features to see if we can get more correlated variable to our Target.
 
-<!-- Polynomial Features -->
-## Polynomial Features
+We can :
+- Use PolynomialFeatures from scikit-learn on all Ext_Source_X features -> created some interesting features added to our dataset
+- Create some other features using common sense :
+	- `CREDIT_INCOME_PERCENT` : % of credit cost in comparision of revenus
+	- `ANNUITY_INCOME_PERCENT` : % of yearly credit cost in comparision of revenus
+	- `CREDIT_TERM` : credit time (in month)
+	- `DAYS_EMPLOYED_PERCENT` : ratio between DAYS_EMPLOYED and DAYS_BIRTH
 
-- Remove colinears features
+![handlyfeature](./Images/handlyfeature.png)
 
-Feature Engineering
+Nothing particularly special, but we still add them into our dataset.
+ 
+<!-- Feature Aggregation -->
+### Feature Aggregation, numeric and categorical
+We aggregate the features present in all the tables relative to our Target to get the maximum values out of our database.
+After numerical and categorical aggregation (see 2nd notebook for info), 
 
-Modeling
+> [!NOTE]  
+> Highlights information that users should take into account, even when skimming.
+
+clean ->  remove colinear variable
+
+<!-- Modeling -->
+## Modeling
