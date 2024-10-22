@@ -37,7 +37,7 @@ This project is from a competition in Kaggle called 'Home Credit Default Risk' w
 
 The database used for this project is quite big, and uses several SQL table. Which can be represented by this image :
 ![database](./Images/DB.png width="250")
-
+<img src="./Images/DB.png" width="48">
 
 Our goal is here to identify and/or create variables that will permit us to build and train appropriate machine mearning models so we can predict as much as possible if a client is able to repay a load in time, or not.
 
